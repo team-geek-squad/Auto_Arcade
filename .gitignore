@@ -41,6 +41,10 @@ build/Release
 node_modules/
 jspm_packages/
 
+# NodeModules specifically
+node-backend/node_modules
+react-frontend/node_modules
+
 # TypeScript v1 declaration files
 typings/
 
