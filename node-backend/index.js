@@ -5,6 +5,11 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const passport = require('passport');
+const LocalStrategy = require('passport-local').Strategy;
+const passportJWT = require('passport-jwt');
+const JwtStrategy = passportJWT.Strategy;
+const ExtractJwt = passportJWT.ExtractJwt;
 const auth = require('./auth')
 
 // getting port from .env file
@@ -42,6 +47,68 @@ app.listen(PORT, () => {
 })
 
 
+// Configure PassportJS to use the local strategy
+passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
+    try {
+      const user = await User.findOne({ email });
+      if (!user) {
+        return done(null, false, { message: 'Invalid email or password' });
+      }
+      const isMatch = await bcrypt.compare(password, user.password);
+      if (!isMatch) {
+        return done(null, false, { message: 'Invalid email or password' });
+      }
+      return done(null, user);
+    } catch (err) {
+      return done(err);
+    }
+  }));
+
+  
+// Set up options for JWT authentication
+const jwtOptions = {
+    jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
+    secretOrKey: 'your_secret_key-123' // Replace with your own secret key
+  };
+  
+  // Create JWT strategy
+  const jwtStrategy = new JwtStrategy(jwtOptions, async (jwtPayload, done) => {
+    const user = await User.findOne({email: jwtPayload.email})
+
+      if (user) {
+        return done(null, user);
+      } else {
+        return done(null, false);
+      }
+  });
+  
+  // Add JWT strategy to PassportJS
+  passport.use(jwtStrategy);
+
+  
+// Initialize PassportJS
+app.use(passport.initialize());
+
+  
+  // Create a login route
+  app.post('/login', (req, res, next) => {
+    passport.authenticate('local', { session: false }, (err, user, info) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user) {
+        return res.status(401).send(info.message);
+      }
+      const token = jwt.sign({ email: user.email }, 'your_secret_key-123');
+      return res.send({ token });
+    })(req, res, next);
+  });
+  
+  // Create a protected route
+  app.get('/protected', passport.authenticate('jwt', { session: false }), (req, res) => {
+    res.send(`Hello there`);
+  });
+
 // user registration endpoint
 app.post('/register', async (req, res) => {
     bcrypt.hash(req.body.password, 10)
@@ -75,59 +142,3 @@ app.post('/register', async (req, res) => {
             });
         });
 })
-
-// user login endpoint
-app.post("/login", (req, res) => {
-    // check if email exists
-    User.findOne({ email: req.body.email })
-
-        // if email exists
-        .then((user) => {
-            // compare the password entered and the hashed password found
-            bcrypt
-                .compare(req.body.password, user.password)
-
-                // if the passwords match
-                .then((passwordCheck) => {
-
-                    // check if password matches
-                    if(!passwordCheck) {
-                        return res.status(400).send({
-                            message: "Passwords does not match",
-                            error,
-                        });
-                    }
-
-                    //   create JWT token
-                    const token = jwt.sign(
-                        {
-                            userId: user._id,
-                            userEmail: user.email,
-                        },
-                        "RANDOM-TOKEN",
-                        { expiresIn: "24h" }
-                    );
-
-                    //   return success res
-                    res.status(200).send({
-                        message: "Login Successful",
-                        email: user.email,
-                        token,
-                    });
-                })
-                // catch error if password does not match
-                .catch((error) => {
-                    res.status(400).send({
-                        message: "Passwords does not match",
-                        error,
-                    });
-                });
-        })
-        // catch error if email does not exist
-        .catch((e) => {
-            res.status(404).send({
-                message: "Email not found",
-                e,
-            });
-        });
-});
