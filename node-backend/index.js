@@ -2,20 +2,11 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
-const jwt = require("jsonwebtoken");
-const passport = require("passport");
-const LocalStrategy = require("passport-local").Strategy;
-const passportJWT = require("passport-jwt");
-const JwtStrategy = passportJWT.Strategy;
-const ExtractJwt = passportJWT.ExtractJwt;
 const authRouter = require("./services/authServices");
 const vehicleRouter = require("./services/vehicleServices");
 
 // getting port from .env file
 const PORT = process.env.PORT;
-
-// getting port from .env file
-const SECRET_KEY = process.env.SECRET_KEY;
 
 // require database connection
 const dbConnect = require("./db/dbConnect");
@@ -52,11 +43,3 @@ app.use("/auth", authRouter);
 // Mount the vehicle router on the /listing path
 app.use("/listing", vehicleRouter);
 
-// Create a protected route
-app.get(
-  "/protected",
-  passport.authenticate("jwt", { session: false }),
-  (req, res) => {
-    res.send(`Hello there`);
-  }
-);

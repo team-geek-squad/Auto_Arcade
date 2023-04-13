@@ -12,6 +12,8 @@ const ExtractJwt = passportJWT.ExtractJwt;
 // require user model
 const User = require('../models/user.model');
 
+// getting port from .env file
+const SECRET_KEY = process.env.SECRET_KEY;
 
 // Configure PassportJS to use the local strategy
 passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
@@ -34,7 +36,7 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, passwor
 // Set up options for JWT authentication
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
-    secretOrKey: 'your_secret_key-123' // Replace with your own secret key
+    secretOrKey: SECRET_KEY // Replace with your own secret key
 };
   
 // Create JWT strategy
@@ -60,7 +62,7 @@ router.post('/login', (req, res, next) => {
         if (!user) {
             return res.status(401).send(info.message);
         }
-        const token = jwt.sign({ email: user.email }, 'your_secret_key-123');
+        const token = jwt.sign({ email: user.email }, SECRET_KEY);
         return res.send({ token });
     })(req, res, next);
 });
