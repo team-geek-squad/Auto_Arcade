@@ -19,6 +19,14 @@ const vehicleSchema = new Schema(
       type: Number,
       required: true,
     },
+    imageURLs: [
+      {
+        url : {
+          type : String,
+          required: true
+        }
+      }
+    ]
   },
   {
     timestamps: true,

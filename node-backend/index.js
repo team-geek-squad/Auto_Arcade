@@ -4,14 +4,14 @@ const cors = require("cors");
 require("dotenv").config();
 const authRouter = require("./services/authServices");
 const vehicleRouter = require("./services/vehicleServices");
+const fileUpload = require('express-fileupload');
+
 
 // getting port from .env file
 const PORT = process.env.PORT;
 
 // require database connection
 const dbConnect = require("./db/dbConnect");
-// require user model
-// const User = require('./models/user.model');
 
 // execute database connection
 dbConnect();
@@ -31,7 +31,10 @@ app.use((req, res, next) => {
 });
 
 app.use(cors());
-app.use(express.json());
+app.use(express.json({limit: "50mb", extended:true}));
+app.use(express.urlencoded({limit: "50mb", extended:true}));
+
+app.use(fileUpload());
 
 // server listening to requests on port on env file
 app.listen(PORT, () => {

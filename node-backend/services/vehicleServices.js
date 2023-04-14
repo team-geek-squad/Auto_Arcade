@@ -2,8 +2,30 @@ const express = require("express");
 const Vehicle = require("../models/vehicle.model");
 const mongoose = require("mongoose");
 const passport = require("passport");
+const {cloudinary} = require('../utils/cloudinary')
+require('dotenv').config()
+
 
 const router = express.Router();
+
+// route for upload image
+// ---------------------------------- some images still fails in encoding to base64, need to fix ----------------------------------------
+router.post('/upload', async (req, res) => {
+  try {
+    const fileStr = req.body.base64image;
+    // console.log(req);
+    const uploadResponse = await cloudinary.uploader.upload(fileStr, {
+        upload_preset: 'geekSquid',
+    });
+    console.log(uploadResponse);
+    res.send({url: uploadResponse.url});
+
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({ message: 'Error uploading image' });
+  }
+});
+
 
 // GET all vehicles
 router.get("/", async (req, res) => {
@@ -33,7 +55,7 @@ router.post(
   "/new_vehicle", 
   passport.authenticate("jwt", { session: false }), 
   async (req, res) => {
-    const { brand, model, manufactured_year, price } = req.body;
+    const { brand, model, manufactured_year, price, imageURLs } = req.body;
 
     // add code to check for empty feilds and send it to frontend
 
@@ -44,6 +66,7 @@ router.post(
         model,
         manufactured_year,
         price,
+        imageURLs
       });
       res.status(200).json(vehicle);
     } catch (error) {
