@@ -9,7 +9,7 @@ const ImageUpload = () => {
     const [model, setmodel] = useState('');
     const [manufactureYear, setmanufactureYear] = useState('');
     const [price, setPrice] = useState(0);
-    const imageURLs = [];
+    const [imageURLs, setimageURLs] = useState([]);
     
 
     const handleFileInputChange = (e) => {
@@ -47,16 +47,44 @@ const ImageUpload = () => {
             };
         }
 
+        const vehicleData = {
+            brand : brand,
+            model : model,
+            manufactureYear : manufactureYear,
+            price : price,
+            imageURLs : imageURLs
+        }
+
+        const config = {
+            headers: {
+                "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MTQwMTAyMH0.tepY7QUCkksLLlqltBezdYDJ88jyi5CUJnfflQaBWDM'
+            }
+        }
+
+        axios.post("http://localhost:8080/listing/new_vehicle", vehicleData, config)
+            .then(res => console.log(res))
+            .catch(err => console.log(err));
+
         
     };
 
 
     const uploadImage = async (base64EncodedImage) => {
         try {
+            const imageURL = [];
+
+            const config = {
+                headers: {
+                    "Authorization": 'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsImlhdCI6MTY4MTQwMTAyMH0.tepY7QUCkksLLlqltBezdYDJ88jyi5CUJnfflQaBWDM'
+                }
+            }
+
             const formData = new FormData();
             formData.append("base64image", base64EncodedImage);
-            const res = await axios.post("http://localhost:8080/listing/upload", formData)
-            imageURLs.push(res.data.url);
+            const res = await axios.post("http://localhost:8080/listing/upload", formData, config)
+            imageURL.push(res.data.url);
+            console.log(imageURL);
+            setimageURLs(imageURL)
             setFileInputState('');
             setPreviewSource('');
         } catch (err) {

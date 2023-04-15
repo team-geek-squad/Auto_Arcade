@@ -21,10 +21,8 @@ const vehicleSchema = new Schema(
     },
     imageURLs: [
       {
-        url : {
-          type : String,
-          required: true
-        }
+        type : String,
+        required: true
       }
     ]
   },

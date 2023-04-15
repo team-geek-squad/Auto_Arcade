@@ -2,19 +2,18 @@ const express = require("express");
 const app = express();
 const cors = require("cors");
 require("dotenv").config();
-const authRouter = require("./services/authServices");
-const vehicleRouter = require("./services/vehicleServices");
+const authRouter = require("./routes/auth.route");
+const vehicleRouter = require("./routes/vehicle.route");
 const fileUpload = require('express-fileupload');
-
-
-// getting port from .env file
-const PORT = process.env.PORT;
 
 // require database connection
 const dbConnect = require("./db/dbConnect");
 
 // execute database connection
 dbConnect();
+
+// getting port from .env file
+const PORT = process.env.PORT;
 
 // Curb Cores Error by adding a header here
 app.use((req, res, next) => {
@@ -36,13 +35,14 @@ app.use(express.urlencoded({limit: "50mb", extended:true}));
 
 app.use(fileUpload());
 
-// server listening to requests on port on env file
-app.listen(PORT, () => {
-  console.log(`Server is Running on ${PORT}`);
-});
-
 // Mount the auth router on the /auth path
 app.use("/auth", authRouter);
 // Mount the vehicle router on the /listing path
 app.use("/listing", vehicleRouter);
+
+
+// server listening to requests on port on env file
+app.listen(PORT, () => {
+  console.log(`Server is Running on ${PORT}`);
+});
 
