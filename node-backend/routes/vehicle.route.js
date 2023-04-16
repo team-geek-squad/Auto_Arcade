@@ -7,11 +7,13 @@ const {
     getVehicleById, 
     addNewVehicle, 
     deleteById, 
-    updateById } = require("../controllers/vehicle.controller");
+    updateById, 
+    getfilterdVehicles} = require("../controllers/vehicle.controller");
 
 
 
 router.get('/', getAllVehicles);
+router.get('/filter', getfilterdVehicles);
 router.get('/:id', getVehicleById);
 router.post(
     '/new_vehicle', 

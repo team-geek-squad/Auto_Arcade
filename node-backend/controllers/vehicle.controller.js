@@ -28,6 +28,13 @@ exports.getAllVehicles = async (req, res) => {
     res.status(200).json(vehicles);
   }
 
+  exports.getfilterdVehicles = async (req, res) => {
+    const filterOptions = req.body;
+    const vehicles = await Vehicle.find(filterOptions).sort({ createdAt: -1 });
+  
+    res.status(200).json(vehicles);
+  }
+
   
 exports.getVehicleById = async (req, res) => {
     const { id } = req.params;
