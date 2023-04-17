@@ -1,0 +1,51 @@
+.navBar {
+  display: flex;
+  justify-content: space-between;
+  height: 1rem;
+  padding: 1rem;
+  position: relative;
+}
+
+.logoDiv {
+  height: 1rem;
+}
+
+.logo {
+  object-fit: cover;
+  height: 100%;
+}
+
+.linkDiv {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  align-items: center;
+  gap: 4rem;
+}
+
+.link {
+  text-decoration: none;
+}
+
+.linkText {
+  font-size: 1rem;
+  color: var(--primary-color);
+  font-weight: 600;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.profileDiv {
+  display: flex;
+  align-items: center;
+}
+
+.signin {
+  text-decoration: none;
+  border: 1px solid var(--primary-color);
+  padding: 0.1rem 2rem;
+  border-radius: 0.5rem;
+}
+
