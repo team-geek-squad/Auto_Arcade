@@ -1,5 +1,3 @@
-const express = require('express');
-const router = express.Router();
 require('dotenv').config()
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
@@ -8,15 +6,13 @@ const LocalStrategy = require('passport-local').Strategy;
 const passportJWT = require('passport-jwt');
 const JwtStrategy = passportJWT.Strategy;
 const ExtractJwt = passportJWT.ExtractJwt;
-
-// require user model
 const User = require('../models/user.model');
 
 // getting port from .env file
 const SECRET_KEY = process.env.SECRET_KEY;
 
-// Configure PassportJS to use the local strategy
-passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
+// Create local strategy
+const localStrategy = new LocalStrategy({ usernameField: 'email' }, async (email, password, done) => {
     try {
         const user = await User.findOne({ email });
         if (!user) {
@@ -30,9 +26,12 @@ passport.use(new LocalStrategy({ usernameField: 'email' }, async (email, passwor
     } catch (err) {
         return done(err);
     }
-}));
+})
 
+// add local Strategy to passport
+passport.use(localStrategy);
   
+
 // Set up options for JWT authentication
 const jwtOptions = {
     jwtFromRequest: ExtractJwt.fromAuthHeaderAsBearerToken(),
@@ -52,9 +51,10 @@ const jwtStrategy = new JwtStrategy(jwtOptions, async (jwtPayload, done) => {
   
 // Add JWT strategy to PassportJS
 passport.use(jwtStrategy);
-  
-// Create a login route
-router.post('/login', (req, res, next) => {
+
+
+// login method
+exports.login = async (req, res, next) => {
     passport.authenticate('local', { session: false }, (err, user, info) => {
         if (err) {
             return next(err);
@@ -62,14 +62,18 @@ router.post('/login', (req, res, next) => {
         if (!user) {
             return res.status(401).send(info.message);
         }
+        
+        // getting port from .env file
+        const SECRET_KEY = process.env.SECRET_KEY;
+
         const token = jwt.sign({ email: user.email }, SECRET_KEY);
         return res.send({ token });
     })(req, res, next);
-});
-  
+}
 
-// user registration endpoint
-router.post('/register', async (req, res) => {
+
+// register method
+exports.register = async (req, res) => {
     bcrypt.hash(req.body.password, 10)
         .then((hashedPassword) => {
             // creating user object
@@ -100,6 +104,4 @@ router.post('/register', async (req, res) => {
                 e,
             });
         });
-})
-
-module.exports = router;
+}
