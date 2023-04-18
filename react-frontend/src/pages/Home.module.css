@@ -1,0 +1,11 @@
+.heroSection {
+  height: 30rem;
+  background-image: url("../assets/hero-car-image.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+.overlay {
+  background-color: rgba(0, 35, 51, 0.5);
+  height: 100%;
+}
