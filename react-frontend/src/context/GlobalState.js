@@ -1,7 +1,7 @@
 import React, { createContext, useReducer } from "react";
 
 // initail state
-const initialState = {};
+const initialState = { };
 
 // create context
 
