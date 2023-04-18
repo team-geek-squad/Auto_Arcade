@@ -10,6 +10,61 @@
   height: 100%;
 }
 
-.section{
-  margin-top: 2rem;
+.section {
+  margin-top: 3rem;
+}
+
+.firstDealBanner {
+  background-color: var(--primary-color);
+  height: 20rem;
+  padding: 3rem 2rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.bannerTextBox {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.bannerWhiteText {
+  font-size: 2rem;
+  font-weight: 700;
+  color: white;
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.bannerHighlightedText {
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--secondary-color);
+  line-height: 1;
+  margin-bottom: 0.25rem;
+  text-transform: uppercase;
+}
+
+.seeMoreBox {
+  height: 100%;
+  display: flex;
+  align-items: end;
+}
+
+.bannerSeeMore {
+  font-size: 1rem;
+  font-weight: 300;
+  color: white;
+  margin-bottom: 0;
+  line-height: 1;
+  text-transform: capitalize;
+}
+
+.bannerImg {
+  position: absolute;
+  top: 5%;
+  right: -7.5%;
+  object-fit: cover;
+  height: 25rem;
 }
