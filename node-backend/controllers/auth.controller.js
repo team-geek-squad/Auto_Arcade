@@ -63,12 +63,23 @@ exports.login = async (req, res, next) => {
             return res.status(401).send(info.message);
         }
         
-        // getting port from .env file
+        // getting SecretKey from .env file
         const SECRET_KEY = process.env.SECRET_KEY;
 
         const token = jwt.sign({ email: user.email }, SECRET_KEY);
-        return res.send({ token });
+        const resObject = {
+            token: token,
+            userData: {
+                username: user.username,
+                email: user.email
+            }
+        }
+        return res.send(resObject);
     })(req, res, next);
+}
+
+exports.authCheck = (req, res) => {
+    res.send(passport.authenticate("jwt", {session: false}));
 }
 
 
