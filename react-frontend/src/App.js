@@ -14,6 +14,7 @@ import SignIn from "./pages/SignIn";
 import Listings from "./pages/Listings";
 import AddListing from "./pages/AddListing";
 import NotFound from "./pages/NotFound";
+import ProtectedRoute from "./context/protectedRoute";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -22,7 +23,7 @@ const router = createBrowserRouter(
       <Route path="sign-up" element={<SignUp />} />
       <Route path="sign-in" element={<SignIn />} />
       <Route path="listings" element={<Listings />} />
-      <Route path="add-listing" element={<AddListing />} />
+        <Route path="add-listing" element={<ProtectedRoute><AddListing /></ProtectedRoute>} />
 
       <Route path="*" element={<NotFound />} />
     </Route>

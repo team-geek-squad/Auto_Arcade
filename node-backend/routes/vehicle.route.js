@@ -8,11 +8,13 @@ const {
     addNewVehicle, 
     deleteById, 
     updateById, 
-    getfilterdVehicles} = require("../controllers/vehicle.controller");
+    getfilterdVehicles,
+    searchVehicles} = require("../controllers/vehicle.controller");
 
 
 
 router.get('/', getAllVehicles);
+router.get('/search', searchVehicles);
 router.get('/filter', getfilterdVehicles);
 router.get('/:id', getVehicleById);
 router.post(

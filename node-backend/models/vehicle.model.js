@@ -31,4 +31,6 @@ const vehicleSchema = new Schema(
   }
 );
 
+vehicleSchema.index({'$**': 'text'});
+
 module.exports = mongoose.model("Vehicle", vehicleSchema);
