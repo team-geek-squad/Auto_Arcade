@@ -1,0 +1,77 @@
+.brandCarousel {
+  position: relative;
+}
+
+.box {
+  border: 1px solid var(--primary-color);
+  border-radius: 0.5rem;
+}
+
+.logoDiv {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 2rem;
+}
+
+.logo {
+  object-fit: contain;
+  max-height: 100%;
+}
+
+.name {
+  text-align: center;
+  margin-top: 2rem;
+  font-size: 1.5rem;
+  text-transform: uppercase;
+  font-weight: 500;
+}
+
+.slick-prev,
+.slick-next {
+  position: absolute;
+  top: 125px;
+  cursor: pointer;
+}
+
+.slick-prev {
+  left: -120px;
+}
+
+.slick-next {
+  right: -120px;
+}
+
+.brandCarousel .slick-dots {
+  bottom: -65px !important;
+}
+
+.brandCarousel .slick-dots li button {
+  transform: scale(2.4);
+}
+
+@media (max-width: 1799px) {
+  .slick-prev {
+    left: -100px;
+  }
+  .slick-next {
+    right: -100px;
+  }
+}
+
+@media (max-width: 991px) {
+  .slick-prev {
+    left: -90px;
+  }
+  .slick-next {
+    right: -90px;
+  }
+}
+
+@media (max-width: 575px) {
+  .slick-prev,
+  .slick-next {
+    display: none;
+  }
+}

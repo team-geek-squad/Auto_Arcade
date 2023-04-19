@@ -7,6 +7,7 @@ import classes from "./Home.module.css";
 import HomePageSectionTitle from "../components/HomePageSectionTitle";
 import WhyAutoArcadeComponent from "../components/WhyAutoArcadeComponent";
 import RecentPreviewsComponent from "../components/RecentPreviewsComponent";
+import BrandCarousel from "../components/BrandCarousel";
 
 import toyotaLandCruiser from "../assets/toyota-land-cruiser.png";
 
@@ -80,14 +81,18 @@ const Home = () => {
       <Container>
         <div className={classes.section}>
           <HomePageSectionTitle title="Browse by brand" />
-          slick carousel
+          <BrandCarousel />
         </div>
         <div className={classes.section}>
           <div className={classes.firstDealBanner}>
             <div className={classes.bannerTextBox}>
               <p className={classes.bannerWhiteText}>make your first deal</p>
-              <p className={classes.bannerWhiteText}>and stand a chance to win a</p>
-              <p className={classes.bannerHighlightedText}>toyota land cruiser</p>
+              <p className={classes.bannerWhiteText}>
+                and stand a chance to win a
+              </p>
+              <p className={classes.bannerHighlightedText}>
+                toyota land cruiser
+              </p>
               <div className={classes.seeMoreBox}>
                 <p className={classes.bannerSeeMore}>
                   see more details &gt;&gt;&gt;
