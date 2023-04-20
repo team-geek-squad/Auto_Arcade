@@ -75,7 +75,7 @@ const Home = () => {
 
   return (
     <>
-      <div className={classes.heroSection}>
+      <div id='homeSection' className={classes.heroSection}>
         <div className={classes.overlay}></div>
       </div>
       <Container>

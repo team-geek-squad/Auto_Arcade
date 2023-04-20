@@ -19,10 +19,18 @@ const vehicleSchema = new Schema(
       type: Number,
       required: true,
     },
+    imageURLs: [
+      {
+        type : String,
+        required: true
+      }
+    ]
   },
   {
     timestamps: true,
   }
 );
+
+vehicleSchema.index({'$**': 'text'});
 
 module.exports = mongoose.model("Vehicle", vehicleSchema);
