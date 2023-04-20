@@ -1,6 +1,6 @@
 const Vehicle = require("../models/vehicle.model");
 const mongoose = require("mongoose");
-const {cloudinary} = require('../utils/cloudinary')
+const {cloudinary} = require('../utils/cloudinary');
 require('dotenv').config()
 
 exports.imageUpload = async (req, res) => {
@@ -57,6 +57,7 @@ exports.getAllModels = async (req, res) => {
 
 exports.getfilterdVehicles = async (req, res) => {
   const filterOptions = req.body;
+  console.log(filterOptions);
   const vehicles = await Vehicle.find(filterOptions).sort({ createdAt: -1 });
 
   res.status(200).json(vehicles);
