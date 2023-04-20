@@ -1,0 +1,27 @@
+.footer {
+  margin-top: 3rem;
+}
+
+.footerContent {
+  padding: 1rem;
+}
+
+.sectionTitle {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.25rem;
+}
+
+.linkContent {
+  text-decoration: none;
+  width: max-content;
+  /* display: inline-flex;
+  flex-direction: column; */
+}
+
+.content {
+  font-weight: 500;
+  color: var(--primary-color);
+  margin-bottom: 0.5rem;
+}
