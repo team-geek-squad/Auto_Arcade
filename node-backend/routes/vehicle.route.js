@@ -19,7 +19,7 @@ router.get('/', getAllVehicles);
 router.get('/search', searchVehicles);
 router.get('/get-all-brands', getAllBrands);
 router.post('/get-all-models', getAllModels);
-router.get('/filter', getfilterdVehicles);
+router.post('/filter', getfilterdVehicles);
 router.get('/:id', getVehicleById);
 router.post(
     '/new_vehicle', 

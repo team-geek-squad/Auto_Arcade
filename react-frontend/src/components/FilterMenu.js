@@ -6,7 +6,7 @@ import classes from '../pages/Listings.module.css'
 import axios from "axios";
 import MultiRangeSlider from "./multiRangeSlider/multiRangeSlider";
 
-const FilterMenu = () => {
+const FilterMenu = ({getFilter}) => {
     const [makeopen, setmakeOpen] = useState(false);
     const [modelopen, setModelOpen] = useState(false);
     const [minPrice, setMinprice] = useState(100000);
@@ -48,14 +48,13 @@ const FilterMenu = () => {
             .catch(err => {
                 console.log(err)
             })
-    }, []);
-
-    useEffect(() => {
+    // }, []);
+    //
+    // useEffect(() => {
     const config = {
             method: "post",
             url: "http://localhost:8080/listing/get-all-models",
-            data: {
-            }
+            data: {}
         }
 
         if (checkedBrands.length !== 0) {
@@ -69,7 +68,16 @@ const FilterMenu = () => {
             .catch(err => {
                 console.log(err)
             })
-    }, [checkedBrands]);
+
+        const filterObject = {
+            brands : checkedBrands,
+            models: checkedModels,
+            minPrice: minPrice,
+            maxPrice:maxPrice
+        }
+
+        getFilter(filterObject);
+    }, [checkedBrands, checkedModels, minPrice, maxPrice]);
 
     return <div className={classes.filterContainer}>
         <div>
