@@ -8,6 +8,8 @@
 
 .logoDiv {
   height: 1rem;
+  display: flex;
+  align-items: center;
 }
 
 .logo {

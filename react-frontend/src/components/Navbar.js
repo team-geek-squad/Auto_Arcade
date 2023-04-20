@@ -7,14 +7,12 @@ import AutoArcadeLogo from "../assets/auto-arcade-logo.png";
 const Navbar = () => {
   return (
     <div className={classes.navBar}>
-      <NavLink to="/">
-        <div className={classes.logoDiv}>
-          <img
-            src={AutoArcadeLogo}
-            alt="Auto Arcade Logo"
-            className={classes.logo}
-          />
-        </div>
+      <NavLink to="/" className={classes.logoDiv}>
+        <img
+          src={AutoArcadeLogo}
+          alt="Auto Arcade Logo"
+          className={classes.logo}
+        />
       </NavLink>
       <div className={classes.linkDiv}>
         <NavLink to="/listings" className={classes.link}>

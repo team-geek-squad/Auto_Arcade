@@ -1,0 +1,46 @@
+.banner {
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.text {
+  color: white;
+  text-align: center;
+  text-transform: uppercase;
+  font-weight: 600;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.subscriptionBox {
+  background-color: white;
+  padding: 0.25rem;
+  width: 30rem;
+}
+
+.input {
+  border: none;
+  outline: none;
+  width: 75%;
+  font-family: "Poppins", sans-serif;
+}
+
+.button {
+  width: 25%;
+  border: none;
+  padding: 0.25rem;
+  background-color: var(--secondary-color);
+  cursor: pointer;
+}
+
+.buttonText {
+  margin-bottom: 0;
+  color: white;
+  text-transform: uppercase;
+  font-weight: 500;
+}
