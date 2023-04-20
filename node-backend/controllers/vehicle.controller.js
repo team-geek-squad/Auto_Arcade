@@ -36,6 +36,25 @@ exports.getAllVehicles = async (req, res) => {
     res.status(200).json(vehicles);
 }
 
+exports.getAllBrands = async (req, res) => {
+  const vehicles = await Vehicle.find().distinct("brand");
+
+  res.status(200).json(vehicles);
+}
+
+
+exports.getAllModels = async (req, res) => {
+  const brands = req.body.brands;
+  let vehicles = null;
+  if(brands == undefined) {
+    vehicles = await Vehicle.find({}).distinct("model");
+  } else {
+    vehicles = await Vehicle.find({brand: {$in: brands}}).distinct("model");
+  }
+
+  res.status(200).json(vehicles);
+}
+
 exports.getfilterdVehicles = async (req, res) => {
   const filterOptions = req.body;
   const vehicles = await Vehicle.find(filterOptions).sort({ createdAt: -1 });
@@ -115,3 +134,4 @@ exports.updateById = async (req, res) => {
     }
     res.status(200).json(vehicle);
   }
+

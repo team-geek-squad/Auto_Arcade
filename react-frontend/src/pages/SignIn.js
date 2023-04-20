@@ -25,8 +25,8 @@ const SignIn = () => {
         axios(config)
             .then((res) => {
                 console.log(res)
-                cookies.set("TOKEN", res.data.token, {
-                    path: "/"
+                cookies.set("TOKEN", res.data, {
+                    path: "/",
                 });
                 window.location.href = "/"
             })
@@ -36,7 +36,7 @@ const SignIn = () => {
             })
     }
 
-    return <section>
+    return <section className={classes.authSection}>
       <form onSubmit={submitHandler}>
           <div className={classes.container}>
               <div className={classes.inputGroup}>

@@ -32,7 +32,7 @@ const SignUp = () => {
         })
   }
 
-  return <section>
+  return <section className={classes.authSection}>
     <form onSubmit={submitHandler}>
       <div className={classes.container}>
         <div className={classes.inputGroup}>

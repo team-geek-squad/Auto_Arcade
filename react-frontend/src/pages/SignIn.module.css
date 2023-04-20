@@ -1,4 +1,4 @@
-section {
+.authSection {
     height: 20rem;
     background-image: url("../assets/authPageImage.jpg");
     background-size: cover;
@@ -6,7 +6,7 @@ section {
     padding: 10rem 5rem;
 }
 
-form {
+.authSection > form {
     margin-left:50%;
 }
 
