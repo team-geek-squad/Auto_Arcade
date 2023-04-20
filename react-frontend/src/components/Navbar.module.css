@@ -1,7 +1,7 @@
 .navBar {
   display: flex;
   justify-content: space-between;
-  height: 1rem;
+  height: 3rem;
   padding: 1rem;
   position: relative;
 }
@@ -50,4 +50,3 @@
   padding: 0.1rem 2rem;
   border-radius: 0.5rem;
 }
-
