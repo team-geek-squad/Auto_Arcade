@@ -6,8 +6,115 @@
 }
 
 .overlay {
-  background-color: rgba(0, 35, 51, 0.5);
+  background-color: rgba(0, 35, 51, 0.55);
   height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.heroContent {
+  width: 40rem;
+}
+
+.exploreDeals {
+  font-size: 2rem;
+  color: white;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-bottom: 0rem;
+}
+
+.searchDiv {
+  width: 100%;
+  background-color: white;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.searchBar {
+  height: 100%;
+  width: 80%;
+  font-family: "Poppins", sans-serif;
+  color: var(--primary-color);
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  padding: 0;
+  line-height: 1rem;
+  padding: 0 0.5rem;
+}
+
+.searchButton {
+  width: 20%;
+  height: 100%;
+  padding: 0.5rem;
+  background-color: var(--primary-color);
+  border: none;
+  outline: none;
+}
+
+.searchButtonText {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: white;
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1rem;
+}
+
+.searchButtonText:hover {
+  color: var(--light-blue);
+}
+
+.locationDiv {
+  width: 100%;
+  background-color: white;
+  padding: 0.25rem;
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+}
+
+.locationContent {
+  display: flex;
+  align-items: center;
+  width: 80%;
+}
+
+.locationIcon {
+  margin-left: 0.5rem;
+  font-size: 1rem;
+  line-height: 1rem;
+  font-variation-settings: "FILL" 1, "wght" 700, "GRAD" 0, "opsz" 48;
+}
+
+.homeLocation {
+  margin-bottom: 0;
+  margin-left: 0.25rem;
+  font-size: 0.75rem;
+  line-height: 0.75rem;
+  /* color: white; */
+}
+
+.locationButton {
+  width: 20%;
+  height: 100%;
+  padding: 0.25rem;
+  background-color: var(--light-grey);
+  border: none;
+  outline: none;
+}
+
+.locationButtonText {
+  margin-bottom: 0;
+  text-transform: uppercase;
+  color: var(--primary-color);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 0.75rem;
 }
 
 .section {
