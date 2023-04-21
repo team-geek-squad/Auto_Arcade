@@ -7,17 +7,22 @@ import Slider from "react-slick";
 import classes from "./BrandCarousel.module.css";
 
 import toyotaLogo from "../assets/toyota-logo.png";
+import mitsubishiLogo from "../assets/mitsubishi-logo.png";
+import hondaLogo from "../assets/honda-logo.png";
+import audiLogo from "../assets/audi-logo.png";
+import benzLogo from "../assets/benz-logo.png";
+import nissanLogo from "../assets/nissan-logo.png";
 import leftArrowIcon from "../assets/left-arrow.png";
 import rightArrowIcon from "../assets/right-arrow.png";
 
 const BrandCarousel = () => {
   const brands = [
     { id: 1, logo: toyotaLogo, name: "Toyota" },
-    { id: 2, logo: "", name: "Nissan" },
-    { id: 3, logo: "", name: "Mitsubishi" },
-    { id: 4, logo: "", name: "Honda" },
-    { id: 5, logo: "", name: "Audi" },
-    { id: 6, logo: "", name: "Benz" },
+    { id: 2, logo: nissanLogo, name: "Nissan" },
+    { id: 3, logo: mitsubishiLogo, name: "Mitsubishi" },
+    { id: 4, logo: hondaLogo, name: "Honda" },
+    { id: 5, logo: audiLogo, name: "Audi" },
+    { id: 6, logo: benzLogo, name: "Mercedes-Benz" },
   ];
 
   const slider = useRef(null);

@@ -10,6 +10,9 @@ import RecentPreviewsComponent from "../components/RecentPreviewsComponent";
 import BrandCarousel from "../components/BrandCarousel";
 
 import toyotaLandCruiser from "../assets/toyota-land-cruiser.png";
+import toyotaCorolla from "../assets/toyota-corolla.jpg";
+import nissanSuperSaloon from "../assets/nissan-super-saloon.jpg";
+import toyotaPrius from "../assets/toyota-prius.jpeg";
 
 const Home = () => {
   const whyAutoArcade = [
@@ -18,27 +21,27 @@ const Home = () => {
       title: "transparent pricing",
       content:
         "No suprise fees here. You will exaclty know how much you will pay",
-      icon: "star",
+      icon: "verified",
     },
     {
       id: 2,
-      title: "transparent pricing",
+      title: "reserve your vehicle online",
       content:
-        "No suprise fees here. You will exaclty know how much you will pay",
-      icon: "bolt",
+        "Make a online payment to the seller and reserve your dream vehicle",
+      icon: "shopping_cart",
     },
     {
       id: 3,
-      title: "transparent pricing",
+      title: "24x7 Customer Service",
       content:
-        "No suprise fees here. You will exaclty know how much you will pay",
-      icon: "person",
+        "We are here everday and everytime, to make sure your deals go smoothly and securely",
+      icon: "support_agent",
     },
     {
       id: 4,
-      title: "transparent pricing",
+      title: "island-wide deals",
       content:
-        "No suprise fees here. You will exaclty know how much you will pay",
+        "We facilate you buy or sell your vehicle, no matter where you live in Sri Lanka",
       icon: "travel_explore",
     },
   ];
@@ -46,37 +49,67 @@ const Home = () => {
   const recentPreviews = [
     {
       id: 1,
-      name: "Toyota Corolla Hybrid",
+      name: "Toyota Axio WXB 2018",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
-      price: 6000000,
+        "Manufactured - Sep 2018, Registered - 2019, Hybrid, CBD Series, Mint Condition, Doctor Used, Urgent Migration",
+      mileage: 87000,
+      price: 10900000,
       location: "Kiribathgoda",
-      photo: "https://picsum.photos/200/200?random=4",
+      photo: toyotaCorolla,
     },
     {
       id: 2,
-      name: "Nissan super saloon fb15",
+      name: "Nissan Sunny FB15 super saloon 2003",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
-      price: 6000000,
-      location: "Kiribathgoda",
-      photo: "https://picsum.photos/200/200?random=4",
+        "2005 registration, New Shell, 2nd Owner, Clear Documents, Used Contition",
+      mileage: 120000,
+      price: 4150000,
+      location: "Pannipitiya",
+      photo: nissanSuperSaloon,
     },
     {
       id: 3,
-      name: "Toyota Prius",
+      name: "Toyota Prius G Touring 2013",
       description:
-        "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris",
-      price: 6000000,
-      location: "Kiribathgoda",
-      photo: "https://picsum.photos/200/200?random=4",
+        "Prius 3rd Gen, G Touring. 1st Owner, Used Condition, 1,500 cc Engine Capacity",
+      mileage: 90000,
+      price: 8300000,
+      location: "Katunayaka",
+      photo: toyotaPrius,
     },
   ];
 
   return (
     <>
-      <div id='homeSection' className={classes.heroSection}>
-        <div className={classes.overlay}></div>
+      <div id="homeSection" className={classes.heroSection}>
+        <div className={classes.overlay}>
+          <div className={classes.heroContent}>
+            <p className={classes.exploreDeals}>Explore deals</p>
+            <div className={classes.searchDiv}>
+              <input
+                type="text"
+                className={classes.searchBar}
+                placeholder="Search by brand, model, type..."
+              />
+              <button className={classes.searchButton}>
+                <p className={classes.searchButtonText}>Search</p>
+              </button>
+            </div>
+            {/* <div className={classes.locationDiv}>
+              <div className={classes.locationContent}>
+                <span
+                  className={`material-symbols-outlined ${classes.locationIcon}`}
+                >
+                  location_on
+                </span>
+                <p className={classes.homeLocation}>Wattala, Sri Lanka</p>
+              </div>
+              <button className={classes.locationButton}>
+                <p className={classes.locationButtonText}>Change</p>
+              </button>
+            </div> */}
+          </div>
+        </div>
       </div>
       <Container>
         <div className={classes.section}>

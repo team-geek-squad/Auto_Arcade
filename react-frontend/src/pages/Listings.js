@@ -26,7 +26,7 @@ const Listings = () => {
     }
 
     if (filter.models && filter.models.length !== 0) {
-      config.data.model = filter.model;
+      config.data.model = filter.models;
     }
 
     axios(config)
