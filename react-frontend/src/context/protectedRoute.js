@@ -5,7 +5,7 @@ const cookies = new Cookies();
 
 const ProtectedRoute = ({children}) => {
 
-    const token = cookies.get("TOKEN");
+    const token = cookies.get("TOKEN").token;
 
     if(!token) {
         return <Navigate to='/sign-in' />

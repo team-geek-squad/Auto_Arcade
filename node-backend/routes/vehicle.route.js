@@ -9,13 +9,17 @@ const {
     deleteById, 
     updateById, 
     getfilterdVehicles,
-    searchVehicles} = require("../controllers/vehicle.controller");
+    searchVehicles,
+    getAllBrands,
+    getAllModels} = require("../controllers/vehicle.controller");
 
 
 
 router.get('/', getAllVehicles);
 router.get('/search', searchVehicles);
-router.get('/filter', getfilterdVehicles);
+router.get('/get-all-brands', getAllBrands);
+router.post('/get-all-models', getAllModels);
+router.post('/filter', getfilterdVehicles);
 router.get('/:id', getVehicleById);
 router.post(
     '/new_vehicle', 
@@ -38,6 +42,8 @@ router.post(
     passport.authenticate("jwt", {session: false}), 
     imageUpload
 );
+
+
 
 
 module.exports = router;

@@ -32,7 +32,7 @@ app.use((req, res, next) => {
 app.use(cors());
 app.use(express.json({limit: "50mb", extended:true}));
 app.use(express.urlencoded({limit: "50mb", extended:true}));
-
+app.set("query parser", "extended");
 app.use(fileUpload());
 
 // Mount the auth router on the /auth path

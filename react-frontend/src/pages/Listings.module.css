@@ -1,0 +1,26 @@
+.listingSection {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    gap: 1rem;
+    height: 100vh;
+    margin: 0 10rem;
+}
+
+.filterColumn {
+    background-color: var(--light-blue);
+}
+
+/*filterComponent css*/
+.filterContainer {
+    padding: 1rem;
+}
+
+.filterField {
+    font-weight: bold;
+    font-size: 1rem;
+    margin-bottom: .1rem;
+}
+
+.filteroOtions {
+    padding-left: .1rem;
+}
