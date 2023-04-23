@@ -1,10 +1,12 @@
 import React, { useRef } from "react";
+import Row from "react-bootstrap/Row";
+import Col from "react-bootstrap/Col";
 
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 
-import classes from "./BrandCarousel.module.css";
+import "./BrandCarousel.css";
 
 import toyotaLogo from "../assets/toyota-logo.png";
 import mitsubishiLogo from "../assets/mitsubishi-logo.png";
@@ -53,30 +55,38 @@ const BrandCarousel = () => {
     ],
   };
   return (
-    <div className={classes.brandCarousel}>
-      <Slider {...settings} ref={slider}>
-        {brands.map((brand) => {
-          return (
-            <div key={brand.id} className={classes.box}>
-              <div className={classes.logoDiv}>
-                <img src={brand.logo} alt="logo" className={classes.logo} />
-              </div>
-              <p className={classes.name}>{brand.name}</p>
-            </div>
-          );
-        })}
-      </Slider>
-      <img
-        src={leftArrowIcon}
-        className="slick-prev"
-        onClick={() => slider?.current?.slickPrev()}
-      />
-      <img
-        src={rightArrowIcon}
-        className="slick-next"
-        onClick={() => slider?.current?.slickNext()}
-      />
-    </div>
+    <Row className="justify-content-center">
+      <Col className="col-xxl-9 col-xl-10 col-lg-9 col-md-10 col-sm-8 col-12">
+        <div className="brandCarousel">
+          <Slider {...settings} ref={slider}>
+            {brands.map((brand) => {
+              return (
+                <div key={brand.id} className="brandCarouselBox">
+                  <div className="brandCarouselLogoDiv">
+                    <img
+                      src={brand.logo}
+                      alt="logo"
+                      className="brandCarouselLogo"
+                    />
+                  </div>
+                  <p className="brandCarouselName">{brand.name}</p>
+                </div>
+              );
+            })}
+          </Slider>
+          <img
+            src={leftArrowIcon}
+            className="brandCarouselPrev"
+            onClick={() => slider?.current?.slickPrev()}
+          />
+          <img
+            src={rightArrowIcon}
+            className="brandCarouselNext"
+            onClick={() => slider?.current?.slickNext()}
+          />
+        </div>
+      </Col>
+    </Row>
   );
 };
 
