@@ -1,0 +1,66 @@
+.title {
+  margin-top: 2rem;
+  margin-bottom: 0;
+}
+
+.location {
+  margin-bottom: 0;
+}
+
+.postedOn {
+  margin-bottom: 1rem;
+}
+
+.detailsDiv {
+  height: 100%;
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+  background-color: var(--light-blue);
+}
+
+.postedByText {
+  text-transform: uppercase;
+  font-weight: 600;
+}
+
+.postedByDiv {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 3rem;
+}
+
+.postedByNameDiv {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 100%;
+  width: 75%;
+  border-radius: 0.5rem;
+}
+
+.postedByName {
+  margin-bottom: 0;
+}
+
+.postedByPhoneDiv {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 100%;
+  width: 10%;
+  border-radius: 0.5rem;
+}
+
+.postedByIcon {
+}
+
+.postedByMessageDiv {
+  display: flex;
+  align-items: center;
+  background-color: white;
+  height: 100%;
+  width: 10%;
+  border-radius: 0.5rem;
+}
