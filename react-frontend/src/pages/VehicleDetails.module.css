@@ -1,5 +1,20 @@
+.warningDiv {
+  background-color: crimson;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}
+
+.warningText {
+  color: white;
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+
 .title {
-  margin-top: 2rem;
+  margin-top: 1rem;
   margin-bottom: 0;
 }
 
@@ -22,6 +37,7 @@
 .postedByText {
   text-transform: uppercase;
   font-weight: 600;
+  margin-left: 1rem;
 }
 
 .postedByDiv {
@@ -29,6 +45,7 @@
   align-items: center;
   justify-content: space-between;
   height: 3rem;
+  margin-bottom: 1rem;
 }
 
 .postedByNameDiv {
@@ -38,6 +55,7 @@
   height: 100%;
   width: 75%;
   border-radius: 0.5rem;
+  padding: 1rem;
 }
 
 .postedByName {
@@ -47,6 +65,7 @@
 .postedByPhoneDiv {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: white;
   height: 100%;
   width: 10%;
@@ -54,13 +73,72 @@
 }
 
 .postedByIcon {
+  font-variation-settings: "FILL" 1, "wght" 400, "GRAD" 0, "opsz" 48;
 }
 
 .postedByMessageDiv {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: white;
   height: 100%;
   width: 10%;
   border-radius: 0.5rem;
+}
+
+.priceDiv {
+  height: 3rem;
+  width: 100%;
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  margin-bottom: 1rem;
+}
+
+.priceText {
+  margin-bottom: 0;
+}
+
+.specsDiv {
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.specsItem {
+  margin-bottom: 0.5rem;
+}
+
+.specsItemTitle {
+  font-weight: 600;
+}
+
+.descriptionDiv {
+  width: 100%;
+  border-radius: 0.5rem;
+  padding: 2rem 1rem;
+  background-color: var(--light-blue);
+  margin-top: 1rem;
+}
+
+.descriptionTitle {
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-left: 1rem;
+}
+
+.descriptionContentDiv {
+  background-color: white;
+  width: 100%;
+  padding: 1rem;
+  border-radius: 0.5rem;
+}
+
+.descriptionContent {
+  margin-bottom: 0;
+  font-style: italic;
+  font-weight: 300;
 }
