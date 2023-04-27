@@ -56,6 +56,7 @@ const BrandCarousel = () => {
   };
   return (
     <Row className="justify-content-center">
+      {/* responsiveness breaks when it reaches the xs breakpoint fix it */}
       <Col className="col-xxl-9 col-xl-10 col-lg-9 col-md-10 col-sm-8 col-12">
         <div className="brandCarousel">
           <Slider {...settings} ref={slider}>

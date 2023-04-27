@@ -7,11 +7,11 @@ import classes from "./RecentPreviewsComponent.module.css";
 
 const recentPreviewsComponent = ({ data }) => {
   return (
-    <Row className={`g-0 ${classes.component}`}>
-      <Col className={`col-12 ${classes.imgDiv}`}>
+    <Row className={`gx-3 gx-lg-0 ${classes.component}`}>
+      <Col className={`col-lg-12 col-4 ${classes.imgDiv}`}>
         <img src={data.photo} alt="photo" className={classes.img} />
       </Col>
-      <Col className={`col-12 ${classes.content}`}>
+      <Col className={`col-lg-12 col-8 ${classes.content}`}>
         <h5 className={classes.name}>{data.name}</h5>
         <p className={classes.description}>{data.description}</p>
         <div className={classes.locationDiv}>

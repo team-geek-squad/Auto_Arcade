@@ -141,7 +141,7 @@ const Home = () => {
         </div>
         <div className={classes.section}>
           <HomePageSectionTitle title="why auto arcade ?" />
-          <Row className="row-cols-2 g-4">
+          <Row className="row-cols-lg-2 row-cols-1 g-4">
             {whyAutoArcade.map((data) => {
               return (
                 <Col key={data.id}>
@@ -153,7 +153,7 @@ const Home = () => {
         </div>
         <div className={classes.section}>
           <HomePageSectionTitle title="recent previews" />
-          <Row className="row-cols-3 g-5">
+          <Row className="row-cols-lg-3 row-cols-1 g-5">
             {recentPreviews.map((data) => {
               return (
                 <Col key={data.id}>
