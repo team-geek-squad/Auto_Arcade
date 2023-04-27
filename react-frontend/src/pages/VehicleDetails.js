@@ -21,7 +21,7 @@ const VehicleDetails = () => {
         <h3 className={classes.title}>Toyota Land Cruiser Prado 2014</h3>
         <p className={classes.location}>Katunayaka, Sri Lanka</p>
         <p className={classes.postedOn}>posted on 23rd March, 2023</p>
-        <Row>
+        <Row className="gy-lg-0 gy-3">
           <Col className="col-lg-6 col-12">
             <VehiclePhotoCarousel />
           </Col>
