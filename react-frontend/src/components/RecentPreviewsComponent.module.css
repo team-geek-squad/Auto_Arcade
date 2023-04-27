@@ -13,6 +13,12 @@
   margin-bottom: 0.5rem;
 }
 
+@media screen and (max-width: 992px) {
+  .imgDiv {
+    height: 8rem;
+  }
+}
+
 .img {
   object-fit: cover;
   height: 100%;
@@ -36,6 +42,12 @@
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: normal;
+}
+
+@media screen and (max-width: 992px) {
+  .description {
+    display: none;
+  }
 }
 
 .locationDiv {
