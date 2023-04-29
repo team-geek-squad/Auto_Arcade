@@ -5,6 +5,8 @@ require("dotenv").config();
 const authRouter = require("./routes/auth.route");
 const vehicleRouter = require("./routes/vehicle.route");
 const fileUpload = require('express-fileupload');
+const passport = require('passport');
+const passportConfig = require("./config/passport");
 
 // require database connection
 const dbConnect = require("./db/dbConnect");
@@ -34,6 +36,8 @@ app.use(express.json({limit: "50mb", extended:true}));
 app.use(express.urlencoded({limit: "50mb", extended:true}));
 app.set("query parser", "extended");
 app.use(fileUpload());
+passport.use(passportConfig.localStrategy);
+passport.use(passportConfig.jwtStrategy);
 
 // Mount the auth router on the /auth path
 app.use("/auth", authRouter);

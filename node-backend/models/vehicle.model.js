@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 
 const vehicleSchema = new Schema(
   {
+    title: {
+      type: String,
+      required: true,
+    },
     brand: {
       type: String,
       required: true,
@@ -15,8 +19,23 @@ const vehicleSchema = new Schema(
     manufactured_year: {
       type: Number,
     },
+    meterReading: {
+      type: Number,
+    },
     price: {
       type: Number,
+      required: true,
+    },
+    location: {
+      type: String,
+      required: true,
+    },
+    sellerName: {
+      type: String,
+      required: true,
+    },
+    sellerId: {
+      type: String,
       required: true,
     },
     imageURLs: [
@@ -34,3 +53,4 @@ const vehicleSchema = new Schema(
 vehicleSchema.index({'$**': 'text'});
 
 module.exports = mongoose.model("Vehicle", vehicleSchema);
+

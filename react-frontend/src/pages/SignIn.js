@@ -23,11 +23,11 @@ const SignIn = () => {
 
     axios(config)
       .then((res) => {
-        console.log(res);
-        cookies.set("TOKEN", res.data.token, {
+        console.log(res.data);
+        cookies.set("TOKEN", res.data, {
           path: "/",
         });
-        window.location.href = "/";
+        window.location.href = "/add-listing";
       })
       .catch((res) => {
         console.log(res);
