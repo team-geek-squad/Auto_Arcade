@@ -5,6 +5,12 @@
   background-position: center;
 }
 
+@media screen and (max-width: 992px) {
+  .heroSection {
+    height: 20rem;
+  }
+}
+
 .overlay {
   background-color: rgba(0, 35, 51, 0.55);
   height: 100%;
@@ -15,6 +21,7 @@
 
 .heroContent {
   width: 40rem;
+  max-width: 90%;
 }
 
 .exploreDeals {
@@ -123,7 +130,7 @@
 
 .firstDealBanner {
   background-color: var(--primary-color);
-  height: 20rem;
+  min-height: 20rem;
   padding: 3rem 2rem;
   position: relative;
   overflow: hidden;
@@ -171,7 +178,13 @@
 .bannerImg {
   position: absolute;
   top: 5%;
-  right: -7.5%;
+  left: 55%;
   object-fit: cover;
   height: 25rem;
+}
+
+@media screen and (max-width: 992px) {
+  .bannerImg {
+    display: none;
+  }
 }

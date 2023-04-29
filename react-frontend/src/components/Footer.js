@@ -12,8 +12,8 @@ const Footer = () => {
     <div className={classes.footer}>
       <SubscriptionBanner />
       <div className={classes.footerContent}>
-        <Row>
-          <Col className="col-3">
+        <Row className="gy-lg-0 gy-3">
+          <Col className="col-lg-3 col-12">
             <h4 className={classes.sectionTitle}>Auto Arcade Pvt. Ltd</h4>
             <p className={classes.content}>
               21st Floor
@@ -26,7 +26,7 @@ const Footer = () => {
             </p>
             <p className={classes.content}>Phone : (011) 2278787</p>
           </Col>
-          <Col className="col-3">
+          <Col className="col-lg-3 col-6">
             <h4 className={classes.sectionTitle}>Company</h4>
             <NavLink to="*" className={classes.linkContent}>
               <p className={classes.content}>About Auto Arcade</p>
@@ -41,7 +41,7 @@ const Footer = () => {
               <p className={classes.content}>Blog</p>
             </NavLink>
           </Col>
-          <Col className="col-3">
+          <Col className="d-none d-lg-block col-lg-3">
             <h4 className={classes.sectionTitle}>For Sellers</h4>
             <NavLink to="*" className={classes.linkContent}>
               <p className={classes.content}>Seller Signup</p>
@@ -50,7 +50,7 @@ const Footer = () => {
               <p className={classes.content}>Seller Resources</p>
             </NavLink>
           </Col>
-          <Col className="col-3">
+          <Col className="col-lg-3 col-6">
             <h4 className={classes.sectionTitle}>Help</h4>
             <NavLink to="*" className={classes.linkContent}>
               <p className={classes.content}>FAQ</p>

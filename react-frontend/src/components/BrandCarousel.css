@@ -1,13 +1,14 @@
 .brandCarousel {
   position: relative;
+  margin-bottom: 2rem;
 }
 
-.box {
+.brandCarouselBox {
   border: 1px solid var(--primary-color);
   border-radius: 0.5rem;
 }
 
-.logoDiv {
+.brandCarouselLogoDiv {
   height: 10rem;
   display: flex;
   justify-content: center;
@@ -15,12 +16,12 @@
   margin-top: 2rem;
 }
 
-.logo {
+.brandCarouselLogo {
   object-fit: contain;
   max-height: 100%;
 }
 
-.name {
+.brandCarouselName {
   text-align: center;
   margin-top: 2rem;
   font-size: 1.5rem;
@@ -28,23 +29,23 @@
   font-weight: 500;
 }
 
-.slick-prev,
-.slick-next {
+.brandCarouselPrev,
+.brandCarouselNext {
   position: absolute;
   top: 125px;
   cursor: pointer;
 }
 
-.slick-prev {
+.brandCarouselPrev {
   left: -120px;
 }
 
-.slick-next {
+.brandCarouselNext {
   right: -120px;
 }
 
 .brandCarousel .slick-dots {
-  bottom: -65px !important;
+  bottom: -3rem !important;
 }
 
 .brandCarousel .slick-dots li button {
@@ -52,26 +53,26 @@
 }
 
 @media (max-width: 1799px) {
-  .slick-prev {
+  .brandCarouselPrev {
     left: -100px;
   }
-  .slick-next {
+  .brandCarouselNext {
     right: -100px;
   }
 }
 
 @media (max-width: 991px) {
-  .slick-prev {
+  .brandCarouselPrev {
     left: -90px;
   }
-  .slick-next {
+  .brandCarouselNext {
     right: -90px;
   }
 }
 
 @media (max-width: 575px) {
-  .slick-prev,
-  .slick-next {
+  .brandCarouselPrev,
+  .brandCarouselNext {
     display: none;
   }
 }

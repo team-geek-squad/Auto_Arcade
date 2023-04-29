@@ -23,7 +23,6 @@ const SignIn = () => {
 
     axios(config)
       .then((res) => {
-        console.log(res.data);
         cookies.set("TOKEN", res.data, {
           path: "/",
         });
