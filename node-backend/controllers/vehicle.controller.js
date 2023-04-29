@@ -1,6 +1,6 @@
 const Vehicle = require("../models/vehicle.model");
 const mongoose = require("mongoose");
-const {cloudinary} = require('../utils/cloudinary');
+const {cloudinary} = require('../config/cloudinary');
 require('dotenv').config()
 
 exports.imageUpload = async (req, res) => {
@@ -57,12 +57,11 @@ exports.getAllModels = async (req, res) => {
 
 exports.getfilterdVehicles = async (req, res) => {
   const filterOptions = req.body;
-  console.log(filterOptions);
+  // console.log(filterOptions);
   const vehicles = await Vehicle.find(filterOptions).sort({ createdAt: -1 });
 
   res.status(200).json(vehicles);
 }
-
   
 exports.getVehicleById = async (req, res) => {
     const { id } = req.params;
@@ -81,17 +80,23 @@ exports.getVehicleById = async (req, res) => {
 
 
 exports.addNewVehicle =   async (req, res) => {
-    const { brand, model, manufactured_year, price, imageURLs } = req.body;
+    const { title, brand, model, location, meterReading, manufactured_year, price, sellerName, sellerId, imageURLs } = req.body;
 
     // add code to check for empty feilds and send it to frontend
 
+    console.log("running");
     // add doc to DB
     try {
       const vehicle = await Vehicle.create({
+        title,
         brand,
         model,
         manufactured_year,
+        meterReading,
         price,
+        location,
+        sellerName,
+        sellerId,
         imageURLs
       });
       res.status(200).json(vehicle);

@@ -1,0 +1,53 @@
+.inputContainer {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    height: 30rem;
+}
+
+.inputContainer > div {
+    background-color: var(--light-blue);
+    height: 100%;
+    padding: 1rem;
+}
+
+.inputGroup {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+    margin-bottom: 1rem;
+    background-color: white;
+}
+
+.inputGroup > label {
+    padding-left: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.inputGroup > input {
+    border: none;
+    outline: none;
+    background-color: white;
+    border-radius: 0.5rem;
+    padding: 0.5rem 0.75rem;
+    color: var(--primary-color);
+}
+
+.submitButton {
+    width: 100%;
+    background-color: var(--primary-color);
+    border: 0;
+    outline: 0;
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.buttonText {
+    color: white;
+    text-decoration: none;
+    margin-bottom: 0;
+    text-transform: uppercase;
+    font-weight: 500;
+}

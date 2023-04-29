@@ -1,6 +1,6 @@
 import classes from './Listings.module.css'
 import FilterMenu from "../components/FilterMenu";
-import VehicleCard from "../components/VehicleCard";
+import VehicleCard from "../components/VehicleCard/VehicleCard";
 import {useEffect, useState} from "react";
 import axios from "axios";
 
@@ -41,8 +41,9 @@ const Listings = () => {
       <FilterMenu getFilter={getFilter}/>
     </div>
     <div>
+    <div className={classes.scorllView}>
       {vehicleList && vehicleList.map((vehicle) => <VehicleCard key={vehicle._id} vehicle={vehicle}/>)}
-
+    </div>
 
     </div>
   </div>
